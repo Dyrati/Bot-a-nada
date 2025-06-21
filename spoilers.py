@@ -85,9 +85,8 @@ def has_img_spoiler(attachments):
     return True
 
 def has_url_spoiler(text):
-    text = text.lower()
-    text = re.sub(r"\|\|.+?\|\|", "", text)
-    return urlparse(flatten(text)).hostname in spoilers["domains"]
+    urlinfo = urlparse(flatten(text)).hostname
+    return urlinfo.hostname in spoilers["domains"]
 
 def has_text_spoilers(text):
     words = getwords(flatten(text))
