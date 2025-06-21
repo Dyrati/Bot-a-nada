@@ -85,7 +85,7 @@ def has_img_spoiler(attachments):
     return True
 
 def has_url_spoiler(text):
-    urlinfo = urlparse(flatten(text)).hostname
+    urlinfo = urlparse(flatten(text))
     return urlinfo.hostname in spoilers["domains"]
 
 def has_text_spoilers(text):
