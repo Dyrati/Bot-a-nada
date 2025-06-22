@@ -72,7 +72,7 @@ def getwords(string):
 
 def flatten(text):
     text = text.lower()
-    text = re.sub(r"\|\|.+?\|\|", "", text)
+    text = re.sub(r"\|\|.+?\|\|", "", text, flags=re.DOTALL)
     text = re.sub(r":\S+?:", "", text) # emojis
     return text
 
