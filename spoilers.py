@@ -130,12 +130,12 @@ async def handle_spoilers(message):
     else:
         return
     
-    edited_at = None
+    last_edit = message.edited_at
     while delay > 0:
         await asyncio.sleep(1)
         delay -= 1
-        if message.edited_at == edited_at: continue
-        edited_at = message.edited_at
+        if message.edited_at == last_edit: continue
+        last_edit = message.edited_at
         text = message.content
         if not has_url_spoiler(text) and not has_text_spoilers(text):
             await bot_message.delete()
